@@ -689,8 +689,7 @@ function rTimetable(){
   </tr>`;
   // 바디
   const rows=periods.map(p=>{
-    const timeStr=(timeMap[p]||'').replace('~','
-');
+    const timeStr=(timeMap[p]||'').replace('~','~<br>');
     const cells=days.map(d=>{
       const slot=(tt[d]||[]).find(x=>x['교시']===p);
       const solSlot=solA&&(solA[d]||[]).find(x=>x['교시']===p&&x['과목']);
@@ -711,8 +710,7 @@ function rTimetable(){
     return `<tr>
       <td class="tt-period-cell">
         <div class="tt-period-num">${p}</div>
-        <div class="tt-period-time">${timeStr.replace('~','~
-')}</div>
+        <div class="tt-period-time">${timeStr}</div>
       </td>
       ${cells}
     </tr>`;
